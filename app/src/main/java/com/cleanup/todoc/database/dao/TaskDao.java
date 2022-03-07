@@ -26,6 +26,10 @@ public interface TaskDao {
     @Query("SELECT * FROM Task WHERE projectId = :projectId")
     Cursor getTasksWithCursor(long projectId);
 
+    //Recover a task from the db
+    @Query("SELECT * FROM Task WHERE id = :taskId")
+    LiveData<Task> getTask(long taskId);
+
     //Add a new task to the db
     @Insert
     long insertTask(Task task);

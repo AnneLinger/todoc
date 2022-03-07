@@ -22,6 +22,14 @@ public class Task {
     @PrimaryKey(autoGenerate = true)
     private long id;
 
+    public long getProjectId() {
+        return projectId;
+    }
+
+    public long getCreationTimestamp() {
+        return creationTimestamp;
+    }
+
     /**
      * The unique identifier of the project associated to the task
      */
@@ -107,7 +115,7 @@ public class Task {
      *
      * @param name the name of the task to set
      */
-    private void setName(@NonNull String name) {
+    public void setName(@NonNull String name) {
         this.name = name;
     }
 
