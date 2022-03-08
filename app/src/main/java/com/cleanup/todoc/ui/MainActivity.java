@@ -41,12 +41,14 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     /**
      * List of all current tasks of the application
      */
+    //TODO recover tasks from the db => pas besoin de changer tasks ensuite ?
     @NonNull
     private final ArrayList<Task> tasks = new ArrayList<>();
 
     /**
      * The adapter which handles the list of tasks
      */
+    //TODO A modifier param adapter ??
     private final TasksAdapter adapter = new TasksAdapter(tasks, this);
 
     /**
@@ -134,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         return super.onOptionsItemSelected(item);
     }
 
+    //TODO A delete dans la db
     @Override
     public void onDeleteTask(Task task) {
         tasks.remove(task);
@@ -174,6 +177,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
                         new Date().getTime()
                 );
 
+                //TODO Add to the db
                 addTask(task);
 
                 dialogInterface.dismiss();
@@ -183,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
                 dialogInterface.dismiss();
             }
         }
-        // If dialog is aloready closed
+        // If dialog is already closed
         else {
             dialogInterface.dismiss();
         }
@@ -208,6 +212,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      *
      * @param task the task to be added to the list
      */
+    //TODO A récupérer dans la db ?
     private void addTask(@NonNull Task task) {
         tasks.add(task);
         updateTasks();
@@ -216,6 +221,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     /**
      * Updates the list of tasks in the UI
      */
+    //TODO a modifier avec la db ?
     private void updateTasks() {
         if (tasks.size() == 0) {
             lblNoTasks.setVisibility(View.VISIBLE);
