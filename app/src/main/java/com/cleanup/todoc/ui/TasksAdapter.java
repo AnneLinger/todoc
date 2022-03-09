@@ -26,13 +26,13 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * The list of tasks the adapter deals with
      */
     @NonNull
-    private List<Task> tasks;
+    private List<Task> mTasks;
 
     /**
      * The listener for when a task needs to be deleted
      */
     @NonNull
-    private final DeleteTaskListener deleteTaskListener;
+    private final DeleteTaskListener mDeleteTaskListener;
 
     /**
      * Instantiates a new TasksAdapter.
@@ -40,8 +40,8 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * @param tasks the list of tasks the adapter deals with to set
      */
     TasksAdapter(@NonNull final List<Task> tasks, @NonNull final DeleteTaskListener deleteTaskListener) {
-        this.tasks = tasks;
-        this.deleteTaskListener = deleteTaskListener;
+        mTasks = tasks;
+        mDeleteTaskListener = deleteTaskListener;
     }
 
     /**
@@ -50,7 +50,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * @param tasks the list of tasks the adapter deals with to set
      */
     void updateTasks(@NonNull final List<Task> tasks) {
-        this.tasks = tasks;
+        mTasks = tasks;
         notifyDataSetChanged();
     }
 
@@ -58,17 +58,17 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_task, viewGroup, false);
-        return new TaskViewHolder(view, deleteTaskListener);
+        return new TaskViewHolder(view, mDeleteTaskListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder taskViewHolder, int position) {
-        taskViewHolder.bind(tasks.get(position));
+        taskViewHolder.bind(mTasks.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return tasks.size();
+        return mTasks.size();
     }
 
     /**

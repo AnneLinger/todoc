@@ -19,15 +19,11 @@ import java.util.List;
 public interface TaskDao {
 
     //Recover all the tasks of a project with LiveData type
-    @Query("SELECT * FROM Task WHERE projectId = :projectId")
-    LiveData<List<Task>> getTasks(long projectId);
-
-    //Recover all the tasks of a project with Cursor type
-    @Query("SELECT * FROM Task WHERE projectId = :projectId")
-    Cursor getTasksWithCursor(long projectId);
+    @Query("SELECT * FROM Task")
+    LiveData<List<Task>> getTasks();
 
     //Recover a task from the db
-    @Query("SELECT * FROM Task WHERE id = :taskId")
+    @Query("SELECT * FROM Task WHERE task_id = :taskId")
     LiveData<Task> getTask(long taskId);
 
     //Add a new task to the db
@@ -36,10 +32,10 @@ public interface TaskDao {
 
     //Update a task in the db
     @Update
-    int updateTask(Task task);
+    void updateTask(Task task);
 
     //Delete a task from the db
-    @Query("DELETE FROM Task WHERE id = :taskId")
-    int deleteTask(long taskId);
+    @Query("DELETE FROM Task WHERE task_id = :taskId")
+    void deleteTask(long taskId);
 
 }

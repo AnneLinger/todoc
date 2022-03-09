@@ -28,6 +28,11 @@ public class TaskViewModel extends ViewModel {
     }
 
     //For projects
+
+    public LiveData<List<Project>> getProjects() {
+        return mProjectDataRepository.getProjects();
+    }
+
     public void createProject(Project project) {
         mProjectDataRepository.createProject(project);
     }
@@ -37,17 +42,17 @@ public class TaskViewModel extends ViewModel {
     }
 
     //For tasks
-    public LiveData<List<Task>> getTasks(long projectId) {
-        return mTaskDataRepository.getTasks(projectId);
+    public LiveData<List<Task>> getTasks() {
+        return mTaskDataRepository.getTasks();
     }
 
     public LiveData<Task> getTask(long taskId) {
         return mTaskDataRepository.getTask(taskId);
     }
 
-    public void createTask(long id, long projectId, String name, long timeStamp) {
+    public void createTask(Task task) {
         mExecutor.execute(() -> {
-            mTaskDataRepository.createTask(new Task(id, projectId, name, timeStamp));
+            mTaskDataRepository.createTask(task);
         });
     }
 

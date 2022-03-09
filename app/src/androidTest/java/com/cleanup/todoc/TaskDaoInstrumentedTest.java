@@ -28,7 +28,7 @@ public class TaskDaoInstrumentedTest {
     //Data set for tests
     private static long PROJECT_ID = 1;
     private static Project PROJECT_DEMO = new Project(PROJECT_ID, "TestProject", 0xFFEADAD1);
-    private static Task TASK_DEMO = new Task(1, PROJECT_ID, "TestTask", 8);
+    private static Task TASK_DEMO = new Task(PROJECT_ID, "TestTask", 8);
 
     @Rule
     public InstantTaskExecutorRule mInstantTaskExecutorRule = new InstantTaskExecutorRule();
@@ -59,7 +59,7 @@ public class TaskDaoInstrumentedTest {
     //Test get tasks when db has no task
     @Test
     public void getTasksWhenNoTaskInserted() throws InterruptedException {
-        List<Task> tasks = LiveDataTestUtil.getValue(this.mDatabase.mTaskDao().getTasks(PROJECT_ID));
+        List<Task> tasks = LiveDataTestUtil.getValue(this.mDatabase.mTaskDao().getTasks());
         assertTrue(tasks.isEmpty());
     }
 
@@ -73,7 +73,7 @@ public class TaskDaoInstrumentedTest {
         this.mDatabase.mTaskDao().insertTask(TASK_DEMO);
 
         //Assert that db contains one task
-        List<Task> tasks = LiveDataTestUtil.getValue(this.mDatabase.mTaskDao().getTasks(PROJECT_ID));
+        List<Task> tasks = LiveDataTestUtil.getValue(this.mDatabase.mTaskDao().getTasks());
         assertTrue(tasks.size() == 1);
     }
 
@@ -92,7 +92,7 @@ public class TaskDaoInstrumentedTest {
         this.mDatabase.mTaskDao().updateTask(taskToUpdate);
 
         //Assert that db contains one task whose name is updated
-        List<Task> tasks = LiveDataTestUtil.getValue(this.mDatabase.mTaskDao().getTasks(PROJECT_ID));
+        List<Task> tasks = LiveDataTestUtil.getValue(this.mDatabase.mTaskDao().getTasks());
         assertTrue(tasks.size()==1 && tasks.get(0).getName().equals("UpdatedTestTask"));
     }
 
@@ -110,7 +110,7 @@ public class TaskDaoInstrumentedTest {
         this.mDatabase.mTaskDao().deleteTask(taskToDelete.getId());
 
         //Assert that tasks are empty now
-        List<Task> tasks = LiveDataTestUtil.getValue(this.mDatabase.mTaskDao().getTasks(PROJECT_ID));
+        List<Task> tasks = LiveDataTestUtil.getValue(this.mDatabase.mTaskDao().getTasks());
         assertTrue(tasks.isEmpty());
     }
 }
