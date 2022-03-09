@@ -18,8 +18,8 @@ public class TaskDataRepository {
     }
 
     //Get the list of the tasks
-    public LiveData<List<Task>> getTasks(long projectId) {
-        return mTaskDao.getTasks(projectId);
+    public LiveData<List<Task>> getTasks() {
+        return mTaskDao.getTasks();
     }
 
     //Get a task

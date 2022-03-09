@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData;
 
 import com.cleanup.todoc.database.dao.ProjectDao;
 import com.cleanup.todoc.model.Project;
+import com.cleanup.todoc.model.Task;
+
+import java.util.List;
 
 /**
 *Repository for projects
@@ -13,6 +16,11 @@ public class ProjectDataRepository {
 
     public ProjectDataRepository(ProjectDao projectDao) {
         mProjectDao = projectDao;
+    }
+
+    //Get the list of the projects
+    public LiveData<List<Project>> getProjects() {
+        return mProjectDao.getProjects();
     }
 
     //Create a project
