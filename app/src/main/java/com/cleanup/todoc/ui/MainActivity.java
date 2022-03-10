@@ -129,22 +129,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      */
     private void configureViewModel() {
         mTaskViewModel = new ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(TaskViewModel.class);
-
-        /**mTaskViewModel.getProjects().observe(this, new Observer<List<Project>>() {
-        @Override
-        public void onChanged(List<Project> projects) {
-        mProjects = projects;
-        }
-        });
-
-         mTaskViewModel.getTasks().observe(this, new Observer<List<Task>>() {
-        @Override
-        public void onChanged(List<Task> tasks) {
-        mTasks = tasks;
-        listTasks.setAdapter(mAdapter);
-        mAdapter.updateTasks(mTasks, mProjects);
-        }
-        });*/
     }
 
     private void getProjects() {
