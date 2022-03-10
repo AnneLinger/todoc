@@ -1,4 +1,4 @@
-package com.cleanup.todoc.ui;
+package com.cleanup.todoc.view;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.cleanup.todoc.database.TodocDatabase;
 import com.cleanup.todoc.repositories.ProjectDataRepository;
 import com.cleanup.todoc.repositories.TaskDataRepository;
-import com.cleanup.todoc.ui.TaskViewModel;
+import com.cleanup.todoc.view.TaskViewModel;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
