@@ -21,10 +21,10 @@ import java.util.concurrent.Executors;
 /**
 *Abstract class to instance the Room db
 */
-@Database(entities = {Task.class, Project.class}, version = 1, exportSchema = false)
+@Database(entities = {Task.class, Project.class}, version = 2, exportSchema = false)
 public abstract class TodocDatabase extends RoomDatabase {
     //Singleton
-    private static volatile TodocDatabase INSTANCE;
+    private static TodocDatabase INSTANCE;
 
     //Dao
     public abstract TaskDao mTaskDao();

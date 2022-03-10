@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      * List of all projects available in the application
      */
     private List<Project> mProjects;
+            //Project.getAllProjects();
+
 
 
     /**
@@ -128,10 +130,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     private void configureViewModel() {
         mTaskViewModel = new ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(TaskViewModel.class);
 
-        /**mTaskViewModel.createProject(Project.getProjectById(1L));
-        mTaskViewModel.createProject(Project.getProjectById(2L));
-        mTaskViewModel.createProject(Project.getProjectById(3L));
-
         /**mTaskViewModel.getProjects().observe(this, new Observer<List<Project>>() {
         @Override
         public void onChanged(List<Project> projects) {
@@ -161,6 +159,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     private void updateProjects(List<Project> projects) {
         mProjects = projects;
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
