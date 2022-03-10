@@ -7,12 +7,19 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.cleanup.todoc.model.Project;
+import com.cleanup.todoc.model.Task;
+
+import java.util.List;
 
 /**
  * Dao interface to manage CRUD actions on Project table
  */
 @Dao
 public interface ProjectDao {
+
+    //Recover all the tasks of a project with LiveData type
+    @Query("SELECT * FROM Project")
+    LiveData<List<Project>> getProjects();
 
     //Create a project in the db
     @Insert(onConflict = OnConflictStrategy.REPLACE)
