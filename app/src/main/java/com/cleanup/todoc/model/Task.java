@@ -15,8 +15,10 @@ import java.util.Comparator;
  *
  * @author Gaëtan HERFRAY
  */
+
 @Entity(foreignKeys = @ForeignKey(entity = Project.class, parentColumns = "id", childColumns = "projectId", onDelete = ForeignKey.CASCADE))
 public class Task {
+
     /**
      * The unique identifier of the task
      */

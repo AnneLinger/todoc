@@ -18,11 +18,11 @@ import java.util.List;
 @Dao
 public interface TaskDao {
 
-    //Recover all the tasks of a project with LiveData type
+    //Recover all the tasks
     @Query("SELECT * FROM Task")
     LiveData<List<Task>> getTasks();
 
-    //Recover a task from the db
+    //Recover a task from the db with its id
     @Query("SELECT * FROM Task WHERE task_id = :taskId")
     LiveData<Task> getTask(long taskId);
 
@@ -37,5 +37,4 @@ public interface TaskDao {
     //Delete a task from the db
     @Query("DELETE FROM Task WHERE task_id = :taskId")
     void deleteTask(long taskId);
-
 }

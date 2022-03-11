@@ -35,7 +35,9 @@ import java.util.List;
  *
  * @author Gaëtan HERFRAY
  */
+
 public class MainActivity extends AppCompatActivity implements TasksAdapter.DeleteTaskListener {
+
     /**
      * For data
      */
@@ -211,7 +213,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
                         new Date().getTime()
                 );
 
-                //TODO Add to the db
                 mTaskViewModel.createTask(task);
                 initTasks();
                 dialogInterface.dismiss();
@@ -296,7 +297,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     }
 
     // -------------------------------------------TO DELETE---------------------------------------------------
-    //TODO A delete dans la db
     @Override
     public void onDeleteTask(Task task) {
         mTaskViewModel.deleteTask(task.getId());
