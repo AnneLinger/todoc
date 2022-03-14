@@ -210,8 +210,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
                 Task task = new Task(
                         taskProject.getId(),
                         taskName,
-                        new Date().getTime()
-                );
+                        new Date().getTime());
 
                 mTaskViewModel.createTask(task);
                 initTasks();

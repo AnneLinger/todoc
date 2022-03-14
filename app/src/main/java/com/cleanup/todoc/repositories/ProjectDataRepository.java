@@ -38,11 +38,6 @@ public class ProjectDataRepository {
         mProjectDao.createProject(project);
     }
 
-    //Update a project in the db
-    public void updateProject(Project project) {
-        mProjectDao.updateProject(project);
-    }
-
     //Delete a task from the db
     public void deleteProject(long projectId) {
         mProjectDao.deleteProject(projectId);

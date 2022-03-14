@@ -30,10 +30,6 @@ public interface ProjectDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void createProject(Project project);
 
-    //Update a project in the db
-    @Update
-    void updateProject(Project project);
-
     //Delete a project from the db
     @Query("DELETE FROM Project WHERE id = :projectId")
     void deleteProject(long projectId);

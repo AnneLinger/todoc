@@ -1,5 +1,6 @@
 package com.cleanup.todoc;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
@@ -31,13 +32,16 @@ public class TaskDaoInstrumentedTest {
     private static long PROJECT_ID = 1;
     private static Project PROJECT_DEMO = new Project(PROJECT_ID,"TestProject", 0xFFEADAD1);
     private static Task TASK_DEMO = new Task(PROJECT_ID, "TestTask", 8);
+    private static Task SECOND_TASK_DEMO = new Task(PROJECT_ID, "SecondTestTask", 9);
 
     @Rule
     public InstantTaskExecutorRule mInstantTaskExecutorRule = new InstantTaskExecutorRule();
 
     @Before
     public void initDb() throws Exception {
-        this.mDatabase = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(), TodocDatabase.class).allowMainThreadQueries().build();
+        mDatabase = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(), TodocDatabase.class).allowMainThreadQueries().build();
+        TASK_DEMO.setId(1);
+        SECOND_TASK_DEMO.setId(2);
     }
 
     @After
@@ -45,38 +49,37 @@ public class TaskDaoInstrumentedTest {
         mDatabase.close();
     }
 
-    //Test insert and get a project
+    //Test get all tasks from the db
     @Test
-    public void insertAndGetProject() throws InterruptedException {
-        //Add PROJECT_DEMO to the db with createProject()
+    public void getAllTasks() throws InterruptedException {
+        //Add a project in the db
         mDatabase.mProjectDao().createProject(PROJECT_DEMO);
 
-        //Recover the PROJECT_DEMO in the db with getProject()
-        Project project = LiveDataTestUtil.getValue(mDatabase.mProjectDao().getProject(PROJECT_ID));
+        //Add the two test tasks to the project
+        mDatabase.mTaskDao().CreateTask(TASK_DEMO);
+        mDatabase.mTaskDao().CreateTask(SECOND_TASK_DEMO);
 
-        //Assert that the project which has been recovered equals to PROJECT_DEMO
-        assertTrue(project.getName().equals(PROJECT_DEMO.getName()) && project.getId() == PROJECT_ID);
-    }
-
-    //Test get tasks when db has no task
-    @Test
-    public void getTasksWhenNoTaskInserted() throws InterruptedException {
+        //Recover the two tasks from the db
         List<Task> tasks = LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTasks());
-        assertTrue(tasks.isEmpty());
+
+        //Assert that the list contains the two test projects
+        assertEquals(2, tasks.size());
     }
 
-    //Test insert and get a task
+    //Test get a task from the db
     @Test
-    public void insertAndGetTask() throws InterruptedException {
+    public void getTask() throws InterruptedException {
         //Add a project in the db
         mDatabase.mProjectDao().createProject(PROJECT_DEMO);
 
         //Add a task to the project
-        mDatabase.mTaskDao().insertTask(TASK_DEMO);
+        mDatabase.mTaskDao().CreateTask(TASK_DEMO);
 
-        //Assert that db contains one task
-        List<Task> tasks = LiveDataTestUtil.getValue(this.mDatabase.mTaskDao().getTasks());
-        assertTrue(tasks.size() == 1);
+        //Recover the TASK_DEMO from the db
+        Task task = LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTask(TASK_DEMO.getId()));
+
+        //Assert that the project which has been recovered equals to PROJECT_DEMO
+        assertTrue(task.getName().equals(TASK_DEMO.getName()) && task.getId() == TASK_DEMO.getId());
     }
 
     //Test insert and update a task
@@ -86,7 +89,7 @@ public class TaskDaoInstrumentedTest {
         mDatabase.mProjectDao().createProject(PROJECT_DEMO);
 
         //Add a task to the project
-        mDatabase.mTaskDao().insertTask(TASK_DEMO);
+        mDatabase.mTaskDao().CreateTask(TASK_DEMO);
 
         //Recover the task and update it
         Task taskToUpdate= LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTask(TASK_DEMO.getId()));
@@ -105,13 +108,13 @@ public class TaskDaoInstrumentedTest {
         mDatabase.mProjectDao().createProject(PROJECT_DEMO);
 
         //Add a task to the project
-        mDatabase.mTaskDao().insertTask(TASK_DEMO);
+        mDatabase.mTaskDao().CreateTask(TASK_DEMO);
 
         //Recover the task to delete it
         Task taskToDelete = LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTask(TASK_DEMO.getId()));
         mDatabase.mTaskDao().deleteTask(taskToDelete.getId());
 
-        //Assert that tasks are empty now
+        //Assert that tasks are empty now in the db
         List<Task> tasks = LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTasks());
         assertTrue(tasks.isEmpty());
     }

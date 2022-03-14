@@ -45,10 +45,6 @@ public class TaskViewModel extends ViewModel {
         mProjectDataRepository.createProject(project);
     }
 
-    public void updateProject(Project project) {
-        mProjectDataRepository.updateProject(project);
-    }
-
     public void deleteProject(long projectId) {
         mProjectDataRepository.deleteProject(projectId);
     }

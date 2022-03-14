@@ -28,7 +28,7 @@ public interface TaskDao {
 
     //Add a new task to the db
     @Insert
-    long insertTask(Task task);
+    long CreateTask(Task task);
 
     //Update a task in the db
     @Update
