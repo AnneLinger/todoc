@@ -15,8 +15,8 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
-*ViewModel constructor
-*/
+ * ViewModel constructor
+ */
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
     //For data

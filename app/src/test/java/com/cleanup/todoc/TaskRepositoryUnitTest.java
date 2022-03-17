@@ -20,8 +20,8 @@ import org.junit.Test;
 import java.util.List;
 
 /**
-*Unit tests for the TaskDataRepository
-*/
+ * Unit tests for the TaskDataRepository
+ */
 
 public class TaskRepositoryUnitTest {
 

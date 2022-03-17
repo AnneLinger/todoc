@@ -1,6 +1,5 @@
 package com.cleanup.todoc.database.dao;
 
-import android.database.Cursor;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -15,6 +14,7 @@ import java.util.List;
 /**
  * Dao interface to manage CRUD actions on Task table
  */
+
 @Dao
 public interface TaskDao {
 

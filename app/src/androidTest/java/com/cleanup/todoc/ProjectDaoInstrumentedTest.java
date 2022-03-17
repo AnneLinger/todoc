@@ -9,7 +9,6 @@ import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.cleanup.todoc.database.TodocDatabase;
 import com.cleanup.todoc.model.Project;
-import com.cleanup.todoc.model.Task;
 import com.cleanup.todoc.utils.LiveDataTestUtil;
 
 import org.junit.After;
@@ -20,8 +19,8 @@ import org.junit.Test;
 import java.util.List;
 
 /**
-*Instrumented tests for ProjectDao interface
-*/
+ * Instrumented tests for ProjectDao interface
+ */
 
 public class ProjectDaoInstrumentedTest {
 
@@ -31,19 +30,19 @@ public class ProjectDaoInstrumentedTest {
     //Data set for tests
     private static final long PROJECT_ID = 1;
     private static final long SECOND_PROJECT_ID = 2;
-    private static final Project PROJECT_DEMO = new Project(PROJECT_ID,"TestProject", 0xFFEADAD1);
+    private static final Project PROJECT_DEMO = new Project(PROJECT_ID, "TestProject", 0xFFEADAD1);
     private static final Project SECOND_PROJECT_DEMO = new Project(SECOND_PROJECT_ID, "SecondTestProject", 0xFFEADAD1);
 
     @Rule
     public InstantTaskExecutorRule mInstantTaskExecutorRule = new InstantTaskExecutorRule();
 
     @Before
-    public void initDb() throws Exception {
+    public void initDb() {
         mDatabase = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(), TodocDatabase.class).allowMainThreadQueries().build();
     }
 
     @After
-    public void closeDb() throws Exception {
+    public void closeDb() {
         mDatabase.close();
     }
 

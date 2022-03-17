@@ -8,8 +8,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
-*Util class to use LiveData in tests
-*/
+ * Util class to use LiveData in tests
+ */
 
 public class LiveDataTestUtil {
 

@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      * The RecyclerView which displays the list of tasks
      */
     // Suppress warning is safe because variable is initialized in onCreate
-    @SuppressWarnings("NullableProblems")
     @NonNull
     private RecyclerView listTasks;
 
@@ -89,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      * The TextView displaying the empty state
      */
     // Suppress warning is safe because variable is initialized in onCreate
-    @SuppressWarnings("NullableProblems")
     @NonNull
     private TextView lblNoTasks;
 
@@ -111,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     }
 
     // -------------------------------------------FOR DATA---------------------------------------------------
+
     /**
      * Configure the ViewModel for the data
      */
@@ -119,6 +118,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     }
 
     // -------------------------------------------FOR UI---------------------------------------------------
+
     /**
      * Configure the UI
      */
@@ -139,7 +139,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
 
     /**
      * Update the list of the projects
-     * @param projects
      */
     private void updateProjects(List<Project> projects) {
         mProjects = projects;
@@ -154,7 +153,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
 
     /**
      * Update the list of the tasks
-     * @param tasks
      */
     private void updateTasks(List<Task> tasks) {
         if (tasks.size() == 0) {
@@ -184,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     }
 
     // -------------------------------------------TO ADD---------------------------------------------------
+
     /**
      * Called when the user clicks on the positive button of the Create Task Dialog.
      *
@@ -217,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
                 dialogInterface.dismiss();
             }
             // If name has been set, but project has not been set (this should never occur)
-            else{
+            else {
                 dialogInterface.dismiss();
             }
         }

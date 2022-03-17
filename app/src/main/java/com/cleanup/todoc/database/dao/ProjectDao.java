@@ -5,16 +5,15 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import com.cleanup.todoc.model.Project;
-import com.cleanup.todoc.model.Task;
 
 import java.util.List;
 
 /**
  * Dao interface to manage CRUD actions on Project table
  */
+
 @Dao
 public interface ProjectDao {
 

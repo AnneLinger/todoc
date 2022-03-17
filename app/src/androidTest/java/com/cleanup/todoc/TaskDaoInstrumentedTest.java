@@ -20,8 +20,8 @@ import org.junit.Test;
 import java.util.List;
 
 /**
-*Instrumented tests for TaskDao interface
-*/
+ * Instrumented tests for TaskDao interface
+ */
 
 public class TaskDaoInstrumentedTest {
 
@@ -29,23 +29,23 @@ public class TaskDaoInstrumentedTest {
     private TodocDatabase mDatabase;
 
     //Data set for tests
-    private static long PROJECT_ID = 1;
-    private static Project PROJECT_DEMO = new Project(PROJECT_ID,"TestProject", 0xFFEADAD1);
-    private static Task TASK_DEMO = new Task(PROJECT_ID, "TestTask", 8);
-    private static Task SECOND_TASK_DEMO = new Task(PROJECT_ID, "SecondTestTask", 9);
+    private static final long PROJECT_ID = 1;
+    private static final Project PROJECT_DEMO = new Project(PROJECT_ID, "TestProject", 0xFFEADAD1);
+    private static final Task TASK_DEMO = new Task(PROJECT_ID, "TestTask", 8);
+    private static final Task SECOND_TASK_DEMO = new Task(PROJECT_ID, "SecondTestTask", 9);
 
     @Rule
     public InstantTaskExecutorRule mInstantTaskExecutorRule = new InstantTaskExecutorRule();
 
     @Before
-    public void initDb() throws Exception {
+    public void initDb() {
         mDatabase = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(), TodocDatabase.class).allowMainThreadQueries().build();
         TASK_DEMO.setId(1);
         SECOND_TASK_DEMO.setId(2);
     }
 
     @After
-    public void closeDb() throws Exception {
+    public void closeDb() {
         mDatabase.close();
     }
 
@@ -92,13 +92,13 @@ public class TaskDaoInstrumentedTest {
         mDatabase.mTaskDao().createTask(TASK_DEMO);
 
         //Recover the task and update it
-        Task taskToUpdate= LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTask(TASK_DEMO.getId()));
+        Task taskToUpdate = LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTask(TASK_DEMO.getId()));
         taskToUpdate.setName("UpdatedTestTask");
         mDatabase.mTaskDao().updateTask(taskToUpdate);
 
         //Assert that db contains one task whose name is updated
         List<Task> tasks = LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTasks());
-        assertTrue(tasks.size()==1 && tasks.get(0).getName().equals("UpdatedTestTask"));
+        assertTrue(tasks.size() == 1 && tasks.get(0).getName().equals("UpdatedTestTask"));
     }
 
     //Test insert and delete a task

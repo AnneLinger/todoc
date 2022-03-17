@@ -24,8 +24,8 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 /**
-*Unit tests for the TaskViewModel
-*/
+ * Unit tests for the TaskViewModel
+ */
 
 public class TaskViewModelUnitTest {
 
@@ -34,18 +34,13 @@ public class TaskViewModelUnitTest {
     private final TaskDataRepository mTaskDataRepository = mock(TaskDataRepository.class);
 
     //For threads
-    private final Executor mExecutor = spy(new Executor() {
-           @Override
-           public void execute(Runnable runnable) {
-               runnable.run();
-           }
-       });
+    private final Executor mExecutor = spy(runnable -> runnable.run());
 
     //For ViewModel
     private TaskViewModel mTaskViewModel;
 
     //Data set for tests
-    private final Project PROJECT_DEMO = new Project(1,"TestProject", 0xFFEADAD1);
+    private final Project PROJECT_DEMO = new Project(1, "TestProject", 0xFFEADAD1);
     private final Task TASK_DEMO = new Task(1, "TestTask", 8);
 
     @Before

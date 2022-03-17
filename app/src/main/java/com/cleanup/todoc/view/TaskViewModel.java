@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 /**
-*ViewModel to recover data for MainActivity
-*/
+ * ViewModel to recover data for MainActivity
+ */
 
 public class TaskViewModel extends ViewModel {
 

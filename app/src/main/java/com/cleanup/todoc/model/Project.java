@@ -36,8 +36,9 @@ public class Project {
 
     /**
      * Instantiates a new Project.
-     * @param id the unique identifier of the project to set
-     *  @param name  the name of the project to set
+     *
+     * @param id    the unique identifier of the project to set
+     * @param name  the name of the project to set
      * @param color the hex (ARGB) code of the color associated to the project to set
      */
     public Project(long id, @NonNull String name, @ColorInt int color) {
@@ -54,8 +55,8 @@ public class Project {
     @NonNull
     public static Project[] getAllProjects() {
         return new Project[]{
-                new Project(1L,"Projet Tartampion", 0xFFEADAD1),
-                new Project(2L,"Projet Lucidia", 0xFFB4CDBA),
+                new Project(1L, "Projet Tartampion", 0xFFEADAD1),
+                new Project(2L, "Projet Lucidia", 0xFFB4CDBA),
                 new Project(3L, "Projet Circus", 0xFFA3CED2),
         };
     }

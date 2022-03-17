@@ -15,12 +15,10 @@ import com.cleanup.todoc.database.dao.TaskDao;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
 /**
-*Abstract class to instance the Room db
-*/
+ * Abstract class to instance the Room db
+ */
 
 @Database(entities = {Task.class, Project.class}, version = 1, exportSchema = false)
 public abstract class TodocDatabase extends RoomDatabase {
@@ -34,7 +32,7 @@ public abstract class TodocDatabase extends RoomDatabase {
 
     //Instance
     public static TodocDatabase getInstance(Context context) {
-        if(INSTANCE == null) {
+        if (INSTANCE == null) {
             synchronized (TodocDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),

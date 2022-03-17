@@ -1,12 +1,8 @@
 package com.cleanup.todoc;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -20,13 +16,12 @@ import com.cleanup.todoc.repositories.ProjectDataRepository;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.util.List;
 
 /**
-*Unit tests for the ProjectDataRepository
-*/
+ * Unit tests for the ProjectDataRepository
+ */
 
 public class ProjectRepositoryUnitTest {
 
@@ -37,7 +32,7 @@ public class ProjectRepositoryUnitTest {
     private ProjectDataRepository mProjectDataRepository;
 
     //Data set for tests
-    private final Project PROJECT_DEMO = new Project(1,"TestProject", 0xFFEADAD1);
+    private final Project PROJECT_DEMO = new Project(1, "TestProject", 0xFFEADAD1);
 
     @Before
     public void setUp() {

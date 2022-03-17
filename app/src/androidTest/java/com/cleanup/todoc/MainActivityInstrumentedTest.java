@@ -13,7 +13,6 @@ import static org.junit.Assert.assertThat;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import androidx.test.platform.app.InstrumentationRegistry;
