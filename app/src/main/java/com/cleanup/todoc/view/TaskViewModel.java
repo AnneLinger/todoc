@@ -42,11 +42,15 @@ public class TaskViewModel extends ViewModel {
     }
 
     public void createProject(Project project) {
-        mProjectDataRepository.createProject(project);
+        mExecutor.execute(() -> {
+            mProjectDataRepository.createProject(project);
+        });
     }
 
     public void deleteProject(long projectId) {
-        mProjectDataRepository.deleteProject(projectId);
+        mExecutor.execute(() -> {
+            mProjectDataRepository.deleteProject(projectId);
+        });
     }
 
     //------------------------------------For tasks------------------------------------------------

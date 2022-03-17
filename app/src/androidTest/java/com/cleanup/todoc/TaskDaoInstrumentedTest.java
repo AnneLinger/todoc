@@ -56,8 +56,8 @@ public class TaskDaoInstrumentedTest {
         mDatabase.mProjectDao().createProject(PROJECT_DEMO);
 
         //Add the two test tasks to the project
-        mDatabase.mTaskDao().CreateTask(TASK_DEMO);
-        mDatabase.mTaskDao().CreateTask(SECOND_TASK_DEMO);
+        mDatabase.mTaskDao().createTask(TASK_DEMO);
+        mDatabase.mTaskDao().createTask(SECOND_TASK_DEMO);
 
         //Recover the two tasks from the db
         List<Task> tasks = LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTasks());
@@ -73,7 +73,7 @@ public class TaskDaoInstrumentedTest {
         mDatabase.mProjectDao().createProject(PROJECT_DEMO);
 
         //Add a task to the project
-        mDatabase.mTaskDao().CreateTask(TASK_DEMO);
+        mDatabase.mTaskDao().createTask(TASK_DEMO);
 
         //Recover the TASK_DEMO from the db
         Task task = LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTask(TASK_DEMO.getId()));
@@ -89,7 +89,7 @@ public class TaskDaoInstrumentedTest {
         mDatabase.mProjectDao().createProject(PROJECT_DEMO);
 
         //Add a task to the project
-        mDatabase.mTaskDao().CreateTask(TASK_DEMO);
+        mDatabase.mTaskDao().createTask(TASK_DEMO);
 
         //Recover the task and update it
         Task taskToUpdate= LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTask(TASK_DEMO.getId()));
@@ -108,7 +108,7 @@ public class TaskDaoInstrumentedTest {
         mDatabase.mProjectDao().createProject(PROJECT_DEMO);
 
         //Add a task to the project
-        mDatabase.mTaskDao().CreateTask(TASK_DEMO);
+        mDatabase.mTaskDao().createTask(TASK_DEMO);
 
         //Recover the task to delete it
         Task taskToDelete = LiveDataTestUtil.getValue(mDatabase.mTaskDao().getTask(TASK_DEMO.getId()));

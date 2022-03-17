@@ -32,7 +32,7 @@ public class TaskDataRepository {
 
     //Create a task
     public void createTask(Task task) {
-        mTaskDao.CreateTask(task);
+        mTaskDao.createTask(task);
     }
 
     //Update a task

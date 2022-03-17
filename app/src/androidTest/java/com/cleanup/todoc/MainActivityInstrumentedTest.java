@@ -13,12 +13,18 @@ import static org.junit.Assert.assertThat;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
+import com.cleanup.todoc.database.TodocDatabase;
 import com.cleanup.todoc.ui.MainActivity;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,10 +35,25 @@ import org.junit.runner.RunWith;
  * @author Gaëtan HERFRAY
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+
 @RunWith(AndroidJUnit4.class)
 public class MainActivityInstrumentedTest {
+
+    //For data
+    private TodocDatabase mDatabase;
+
     @Rule
     public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
+
+    @Before
+    public void initDb() throws Exception {
+        mDatabase = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(), TodocDatabase.class).allowMainThreadQueries().build();
+    }
+
+    @After
+    public void closeDb() throws Exception {
+        mDatabase.close();
+    }
 
     @Test
     public void addAndRemoveTask() {

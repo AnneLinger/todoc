@@ -17,7 +17,9 @@ import static org.junit.Assert.assertSame;
  *
  * @author Gaëtan HERFRAY
  */
+
 public class TaskUnitTest {
+
     @Test
     public void test_projects() {
         final Task task1 = new Task(1, "task 1", new Date().getTime());
