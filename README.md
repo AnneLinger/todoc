@@ -32,6 +32,9 @@ Todoc is an application to help the collaborators of Cleanup to manage their tas
 
 ## Documentation
 
+<img src="https://github.com/AnneLinger/todoc/blob/c519becaa6dd00d7a79b8e3f82fd033cf31a9e6e/Class%20diagram.jpg" width="600" alt="Class diagram"/>
+<img src="https://github.com/AnneLinger/todoc/blob/c519becaa6dd00d7a79b8e3f82fd033cf31a9e6e/Database%20diagram.jpg" width="600" alt="Database diagram"/>
+<img src="https://github.com/AnneLinger/todoc/blob/c519becaa6dd00d7a79b8e3f82fd033cf31a9e6e/Use%20case%20diagram.jpg" width="400" alt="Use case diagram"/>
 
 ## Deployment
 
