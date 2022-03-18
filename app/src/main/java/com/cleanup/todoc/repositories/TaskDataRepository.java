@@ -8,11 +8,15 @@ import com.cleanup.todoc.model.Task;
 import java.util.List;
 
 /**
-*Repository for Tasks
-*/
+ * Repository for Tasks
+ */
+
 public class TaskDataRepository {
+
+    //For data
     private final TaskDao mTaskDao;
 
+    //Constructor
     public TaskDataRepository(TaskDao taskDao) {
         mTaskDao = taskDao;
     }
@@ -29,7 +33,7 @@ public class TaskDataRepository {
 
     //Create a task
     public void createTask(Task task) {
-        mTaskDao.insertTask(task);
+        mTaskDao.createTask(task);
     }
 
     //Update a task

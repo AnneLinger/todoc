@@ -5,7 +5,6 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 /**
@@ -13,12 +12,14 @@ import androidx.room.PrimaryKey;
  *
  * @author Gaëtan HERFRAY
  */
+
 @Entity
 public class Project {
+
     /**
      * The unique identifier of the project
      */
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private final long id;
 
     /**

@@ -8,9 +8,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
-*Created by Anne Linger on 04/03/2022.
-*/
+ * Util class to use LiveData in tests
+ */
+
 public class LiveDataTestUtil {
+
     public static <T> T getValue(final LiveData<T> liveData) throws InterruptedException {
 
         final Object[] data = new Object[1];

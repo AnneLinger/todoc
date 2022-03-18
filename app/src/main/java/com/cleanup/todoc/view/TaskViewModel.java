@@ -1,4 +1,4 @@
-package com.cleanup.todoc.ui;
+package com.cleanup.todoc.view;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
@@ -12,12 +12,16 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 /**
-*ViewModel to recover data for MainActivity
-*/
+ * ViewModel to recover data for MainActivity
+ */
+
 public class TaskViewModel extends ViewModel {
+
     //Repositories
     private final TaskDataRepository mTaskDataRepository;
     private final ProjectDataRepository mProjectDataRepository;
+
+    //For threads
     private final Executor mExecutor;
 
     //Constructor
@@ -27,21 +31,30 @@ public class TaskViewModel extends ViewModel {
         mExecutor = executor;
     }
 
-    //For projects
+    //----------------------------------For projects-----------------------------------------------
 
     public LiveData<List<Project>> getProjects() {
         return mProjectDataRepository.getProjects();
-    }
-
-    public void createProject(Project project) {
-        mProjectDataRepository.createProject(project);
     }
 
     public LiveData<Project> getProject(long projectId) {
         return mProjectDataRepository.getProject(projectId);
     }
 
-    //For tasks
+    public void createProject(Project project) {
+        mExecutor.execute(() -> {
+            mProjectDataRepository.createProject(project);
+        });
+    }
+
+    public void deleteProject(long projectId) {
+        mExecutor.execute(() -> {
+            mProjectDataRepository.deleteProject(projectId);
+        });
+    }
+
+    //------------------------------------For tasks------------------------------------------------
+
     public LiveData<List<Task>> getTasks() {
         return mTaskDataRepository.getTasks();
     }
