@@ -15,6 +15,7 @@ import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 import com.cleanup.todoc.repositories.ProjectDataRepository;
 import com.cleanup.todoc.repositories.TaskDataRepository;
+import com.cleanup.todoc.util.TestExecutor;
 import com.cleanup.todoc.view.TaskViewModel;
 
 import org.junit.Before;
@@ -34,7 +35,7 @@ public class TaskViewModelUnitTest {
     private final TaskDataRepository mTaskDataRepository = mock(TaskDataRepository.class);
 
     //For threads
-    private final Executor mExecutor = spy(runnable -> runnable.run());
+    private final Executor mExecutor = spy(new TestExecutor());
 
     //For ViewModel
     private TaskViewModel mTaskViewModel;
