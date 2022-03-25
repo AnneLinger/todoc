@@ -37,4 +37,20 @@ public interface TaskDao {
     //Delete a task from the db
     @Query("DELETE FROM Task WHERE task_id = :taskId")
     void deleteTask(long taskId);
+
+    //Sort tasks by alphabetical order
+    @Query("SELECT t.* FROM Task AS t JOIN project AS p on p.id = t.project_id ORDER BY p.name")
+    LiveData<List<Task>> sortTasksByAlphabeticalOrder();
+
+    //Sort tasks by reverse alphabetical order
+    @Query("SELECT t.* FROM Task AS t JOIN project AS p on p.id = t.project_id ORDER BY p.name DESC")
+    LiveData<List<Task>> sortTasksByReverseAlphabeticalOrder();
+
+    //Sort tasks by creation timestamp order
+    @Query("SELECT * FROM Task ORDER BY task_creation_timestamp")
+    LiveData<List<Task>> sortTasksByCreationTimestampOrder();
+
+    //Sort tasks by reverse creation timestamp order
+    @Query("SELECT * FROM Task ORDER BY task_creation_timestamp DESC")
+    LiveData<List<Task>> sortTasksByReverseCreationTimestampOrder();
 }

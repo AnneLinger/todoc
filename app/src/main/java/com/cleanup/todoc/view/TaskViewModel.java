@@ -80,4 +80,20 @@ public class TaskViewModel extends ViewModel {
             mTaskDataRepository.deleteTask(taskId);
         });
     }
+
+    public LiveData<List<Task>> sortTasksByAlphabeticalOrder() {
+        return mTaskDataRepository.sortTasksByAlphabeticalOrder();
+    }
+
+    public LiveData<List<Task>> sortTasksByReverseAlphabeticalOrder() {
+        return mTaskDataRepository.sortTasksByReverseAlphabeticalOrder();
+    }
+
+    public LiveData<List<Task>> sortTasksByCreationTimestampOrder() {
+        return mTaskDataRepository.sortTasksByCreationTimestampOrder();
+    }
+
+    public LiveData<List<Task>> sortTasksByReverseCreationTimestampOrder() {
+        return mTaskDataRepository.sortTasksByReverseCreationTimestampOrder();
+    }
 }

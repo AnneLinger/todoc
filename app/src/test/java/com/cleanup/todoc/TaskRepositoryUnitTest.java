@@ -103,4 +103,48 @@ public class TaskRepositoryUnitTest {
         verify(mTaskDao).deleteTask(TASK_DEMO.getId());
         verifyNoMoreInteractions(mTaskDao);
     }
+
+    //Test sort tasks by alphabetical order
+    @Test
+    public void sortTasksByAlphabeticalOrder() {
+        //Sort tasks with the repository
+        mTaskDataRepository.sortTasksByAlphabeticalOrder();
+
+        //Verify that tasks have also been sort by the Dao
+        verify(mTaskDao).sortTasksByAlphabeticalOrder();
+        verifyNoMoreInteractions(mTaskDao);
+    }
+
+    //Test sort tasks by reverse alphabetical order
+    @Test
+    public void sortTasksByReverseAlphabeticalOrder() {
+        //Sort tasks with the repository
+        mTaskDataRepository.sortTasksByReverseAlphabeticalOrder();
+
+        //Verify that tasks have also been sort by the Dao
+        verify(mTaskDao).sortTasksByReverseAlphabeticalOrder();
+        verifyNoMoreInteractions(mTaskDao);
+    }
+
+    //Test sort tasks by creation timestamp order
+    @Test
+    public void sortTasksByCreationTimestampOrder() {
+        //Sort tasks with the repository
+        mTaskDataRepository.sortTasksByCreationTimestampOrder();
+
+        //Verify that tasks have also been sort by the Dao
+        verify(mTaskDao).sortTasksByCreationTimestampOrder();
+        verifyNoMoreInteractions(mTaskDao);
+    }
+
+    //Test sort tasks by reverse creation timestamp order
+    @Test
+    public void sortTasksByReverseCreationTimestampOrder() {
+        //Sort tasks with the repository
+        mTaskDataRepository.sortTasksByReverseCreationTimestampOrder();
+
+        //Verify that tasks have also been sort by the Dao
+        verify(mTaskDao).sortTasksByReverseCreationTimestampOrder();
+        verifyNoMoreInteractions(mTaskDao);
+    }
 }

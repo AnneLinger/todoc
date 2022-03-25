@@ -45,4 +45,24 @@ public class TaskDataRepository {
     public void deleteTask(long taskId) {
         mTaskDao.deleteTask(taskId);
     }
+
+    //Sort tasks by alphabetical order
+    public LiveData<List<Task>> sortTasksByAlphabeticalOrder() {
+        return mTaskDao.sortTasksByAlphabeticalOrder();
+    }
+
+    //Sort tasks by reverse alphabetical order
+    public LiveData<List<Task>> sortTasksByReverseAlphabeticalOrder() {
+        return mTaskDao.sortTasksByReverseAlphabeticalOrder();
+    }
+
+    //Sort tasks by creation timestamp order
+    public LiveData<List<Task>> sortTasksByCreationTimestampOrder() {
+        return mTaskDao.sortTasksByCreationTimestampOrder();
+    }
+
+    //Sort tasks by reverse creation timestamp order
+    public LiveData<List<Task>> sortTasksByReverseCreationTimestampOrder() {
+        return mTaskDao.sortTasksByReverseCreationTimestampOrder();
+    }
 }

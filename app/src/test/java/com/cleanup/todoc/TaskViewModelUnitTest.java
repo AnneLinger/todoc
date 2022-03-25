@@ -167,4 +167,48 @@ public class TaskViewModelUnitTest {
         verify(mTaskDataRepository).deleteTask(TASK_DEMO.getId());
         verifyNoMoreInteractions(mTaskDataRepository);
     }
+
+    //Test sort tasks by alphabetical order
+    @Test
+    public void sortTasksByAlphabeticalOrder() {
+        //Sort tasks with the ViewModel
+        mTaskViewModel.sortTasksByAlphabeticalOrder();
+
+        //Verify that tasks have also been sort by the repository
+        verify(mTaskDataRepository).sortTasksByAlphabeticalOrder();
+        verifyNoMoreInteractions(mTaskDataRepository);
+    }
+
+    //Test sort tasks by reverse alphabetical order
+    @Test
+    public void sortTasksByReverseAlphabeticalOrder() {
+        //Sort tasks with the ViewModel
+        mTaskViewModel.sortTasksByReverseAlphabeticalOrder();
+
+        //Verify that tasks have also been sort by the repository
+        verify(mTaskDataRepository).sortTasksByReverseAlphabeticalOrder();
+        verifyNoMoreInteractions(mTaskDataRepository);
+    }
+
+    //Test sort tasks by creation timestamp order
+    @Test
+    public void sortTasksByCreationTimestampOrder() {
+        //Sort tasks with the ViewModel
+        mTaskViewModel.sortTasksByCreationTimestampOrder();
+
+        //Verify that tasks have also been sort by the repository
+        verify(mTaskDataRepository).sortTasksByCreationTimestampOrder();
+        verifyNoMoreInteractions(mTaskDataRepository);
+    }
+
+    //Test sort tasks by reverse creation timestamp order
+    @Test
+    public void sortTasksByReverseCreationTimestampOrder() {
+        //Sort tasks with the ViewModel
+        mTaskViewModel.sortTasksByReverseCreationTimestampOrder();
+
+        //Verify that tasks have also been sort by the repository
+        verify(mTaskDataRepository).sortTasksByReverseCreationTimestampOrder();
+        verifyNoMoreInteractions(mTaskDataRepository);
+    }
 }

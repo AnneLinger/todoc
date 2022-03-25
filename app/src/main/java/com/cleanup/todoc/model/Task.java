@@ -16,7 +16,7 @@ import java.util.Comparator;
  * @author Gaëtan HERFRAY
  */
 
-@Entity(foreignKeys = @ForeignKey(entity = Project.class, parentColumns = "id", childColumns = "projectId", onDelete = ForeignKey.CASCADE))
+@Entity(foreignKeys = @ForeignKey(entity = Project.class, parentColumns = "id", childColumns = "project_id", onDelete = ForeignKey.CASCADE))
 public class Task {
 
     /**
@@ -29,6 +29,7 @@ public class Task {
     /**
      * The unique identifier of the project associated to the task
      */
+    @ColumnInfo(name = "project_id")
     private long projectId;
 
     /**
@@ -37,11 +38,13 @@ public class Task {
     // Suppress warning because setName is called in constructor
     @SuppressWarnings("NullableProblems")
     @NonNull
+    @ColumnInfo(name = "task_name")
     private String name;
 
     /**
      * The timestamp when the task has been created
      */
+    @ColumnInfo(name = "task_creation_timestamp")
     private long creationTimestamp;
 
     /**
