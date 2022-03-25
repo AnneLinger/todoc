@@ -572,9 +572,9 @@ jQuery.cookie = function(name, value, options) {
     <body>
         <div id="container">
             <div id="header">
-                <div class="time" xmlns="">708 ms</div>
+                <div class="time" xmlns="">838 ms</div>
                 <h1>
-                    Tests in 'com.cleanup.todoc': <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">23 total, </span><span class="passed">23 passed</span></strong>
+                    Tests in 'com.cleanup.todoc': <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">27 total, </span><span class="passed">27 passed</span></strong>
                 </h1>
                 <div id="treecontrol">
                     <ul>
@@ -593,39 +593,49 @@ jQuery.cookie = function(name, value, options) {
                 <ul id="tree">
                     <li xmlns="" class="level top open">
                         <span><em class="time">
-                                <div class="time">578 ms</div>
+                                <div class="time">729 ms</div>
                             </em>com.cleanup.todoc.ProjectRepositoryUnitTest</span>
                         <ul>
                             <li class="level test">
                                 <span><em class="time">
-                                        <div class="time">560 ms</div>
+                                        <div class="time">716 ms</div>
                                     </em><em class="status">passed</em>deleteProject</span>
                             </li>
                             <li class="level test">
                                 <span><em class="time">
-                                        <div class="time">15 ms</div>
+                                        <div class="time">12 ms</div>
                                     </em><em class="status">passed</em>getProject</span>
                             </li>
                             <li class="level test">
                                 <span><em class="time">
-                                        <div class="time">2 ms</div>
+                                        <div class="time">1 ms</div>
                                     </em><em class="status">passed</em>getProjects</span>
                             </li>
                             <li class="level test">
                                 <span><em class="time">
-                                        <div class="time">1 ms</div>
+                                        <div class="time">0 ms</div>
                                     </em><em class="status">passed</em>createProject</span>
                             </li>
                         </ul>
                     </li>
                     <li class="level top open">
                         <span><em class="time">
-                                <div class="time">41 ms</div>
+                                <div class="time">27 ms</div>
                             </em>com.cleanup.todoc.TaskRepositoryUnitTest</span>
                         <ul>
                             <li class="level test">
                                 <span><em class="time">
-                                        <div class="time">36 ms</div>
+                                        <div class="time">22 ms</div>
+                                    </em><em class="status">passed</em>sortTasksByReverseCreationTimestampOrder</span>
+                            </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">1 ms</div>
+                                    </em><em class="status">passed</em>sortTasksByReverseAlphabeticalOrder</span>
+                            </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">1 ms</div>
                                     </em><em class="status">passed</em>updateTask</span>
                             </li>
                             <li class="level test">
@@ -635,12 +645,17 @@ jQuery.cookie = function(name, value, options) {
                             </li>
                             <li class="level test">
                                 <span><em class="time">
-                                        <div class="time">2 ms</div>
-                                    </em><em class="status">passed</em>createTask</span>
+                                        <div class="time">0 ms</div>
+                                    </em><em class="status">passed</em>sortTasksByCreationTimestampOrder</span>
                             </li>
                             <li class="level test">
                                 <span><em class="time">
                                         <div class="time">1 ms</div>
+                                    </em><em class="status">passed</em>createTask</span>
+                            </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">0 ms</div>
                                     </em><em class="status">passed</em>deleteTask</span>
                             </li>
                             <li class="level test">
@@ -648,33 +663,18 @@ jQuery.cookie = function(name, value, options) {
                                         <div class="time">1 ms</div>
                                     </em><em class="status">passed</em>getTasks</span>
                             </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">0 ms</div>
+                                    </em><em class="status">passed</em>sortTasksByAlphabeticalOrder</span>
+                            </li>
                         </ul>
                     </li>
                     <li class="level top open">
                         <span><em class="time">
-                                <div class="time">4 ms</div>
+                                <div class="time">0 ms</div>
                             </em>com.cleanup.todoc.TaskUnitTest</span>
                         <ul>
-                            <li class="level test">
-                                <span><em class="time">
-                                        <div class="time">1 ms</div>
-                                    </em><em class="status">passed</em>test_az_comparator</span>
-                            </li>
-                            <li class="level test">
-                                <span><em class="time">
-                                        <div class="time">1 ms</div>
-                                    </em><em class="status">passed</em>test_recent_comparator</span>
-                            </li>
-                            <li class="level test">
-                                <span><em class="time">
-                                        <div class="time">1 ms</div>
-                                    </em><em class="status">passed</em>test_old_comparator</span>
-                            </li>
-                            <li class="level test">
-                                <span><em class="time">
-                                        <div class="time">1 ms</div>
-                                    </em><em class="status">passed</em>test_za_comparator</span>
-                            </li>
                             <li class="level test">
                                 <span><em class="time">
                                         <div class="time">0 ms</div>
@@ -684,28 +684,43 @@ jQuery.cookie = function(name, value, options) {
                     </li>
                     <li class="level top open">
                         <span><em class="time">
-                                <div class="time">85 ms</div>
+                                <div class="time">82 ms</div>
                             </em>com.cleanup.todoc.TaskViewModelUnitTest</span>
                         <ul>
                             <li class="level test">
                                 <span><em class="time">
-                                        <div class="time">73 ms</div>
-                                    </em><em class="status">passed</em>deleteProject</span>
-                            </li>
-                            <li class="level test">
-                                <span><em class="time">
-                                        <div class="time">3 ms</div>
-                                    </em><em class="status">passed</em>updateTask</span>
-                            </li>
-                            <li class="level test">
-                                <span><em class="time">
-                                        <div class="time">2 ms</div>
-                                    </em><em class="status">passed</em>getTask</span>
+                                        <div class="time">70 ms</div>
+                                    </em><em class="status">passed</em>sortTasksByReverseCreationTimestampOrder</span>
                             </li>
                             <li class="level test">
                                 <span><em class="time">
                                         <div class="time">1 ms</div>
+                                    </em><em class="status">passed</em>sortTasksByReverseAlphabeticalOrder</span>
+                            </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">2 ms</div>
+                                    </em><em class="status">passed</em>deleteProject</span>
+                            </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">1 ms</div>
+                                    </em><em class="status">passed</em>updateTask</span>
+                            </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">1 ms</div>
+                                    </em><em class="status">passed</em>getTask</span>
+                            </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">0 ms</div>
                                     </em><em class="status">passed</em>getProject</span>
+                            </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">1 ms</div>
+                                    </em><em class="status">passed</em>sortTasksByCreationTimestampOrder</span>
                             </li>
                             <li class="level test">
                                 <span><em class="time">
@@ -729,8 +744,13 @@ jQuery.cookie = function(name, value, options) {
                             </li>
                             <li class="level test">
                                 <span><em class="time">
-                                        <div class="time">2 ms</div>
+                                        <div class="time">1 ms</div>
                                     </em><em class="status">passed</em>getTasks</span>
+                            </li>
+                            <li class="level test">
+                                <span><em class="time">
+                                        <div class="time">1 ms</div>
+                                    </em><em class="status">passed</em>sortTasksByAlphabeticalOrder</span>
                             </li>
                         </ul>
                     </li>
@@ -738,7 +758,7 @@ jQuery.cookie = function(name, value, options) {
             </div>
         </div>
         <div id="footer">
-            <p>Generated by Android Studio on 21/03/2022 10:23</p>
+            <p>Generated by Android Studio on 25/03/2022 10:44</p>
         </div>
     </body>
 </html>
